@@ -5,6 +5,12 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+from pathlib import Path
+import pandas as pd
+
+
+data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
+
 
 def pregunta_02():
     """
@@ -14,3 +20,5 @@ def pregunta_02():
     4
 
     """
+    tbl0 = pd.read_csv(data_dir / "tbl0.tsv", sep="\t")
+    return len(tbl0.columns)
